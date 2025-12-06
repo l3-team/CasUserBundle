@@ -11,11 +11,11 @@ class CasUserProvider implements UserProviderInterface {
 
     public function __construct() {}
 
-    public function loadUserByIdentifier(string $identifier): UserInterface {
+    public function loadUserByUsername($username) {
         $user = new CasUser();
-        $user->setId($identifier);
+        $user->setId($username);
         $roles = Array();
-        if ($identifier === '__NO_USER__') {
+        if ($username === '__NO_USER__') {
             $roles = array('ROLE_ANON');
         } else {
             $roles = array('ROLE_ANON', 'ROLE_USER');
@@ -24,15 +24,15 @@ class CasUserProvider implements UserProviderInterface {
         return $user;
     }
 
-    public function refreshUser(UserInterface $user): UserInterface {
+    public function refreshUser(UserInterface $user) {
         if(!$user instanceof CasUser) {
             throw new UnsupportedUserException(sprintf('Instances of "%s" are not supported.', get_class($user)));
         }
 
-        return $this->loadUserByIdentifier($user->getId());
+        return $this->loadUserByUsername($user->getId());
     }
 
-    public function supportsClass(string $class): bool {
+    public function supportsClass($class) {
         return CasUser::class === $class;
     }
 } 

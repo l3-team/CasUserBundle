@@ -22,7 +22,7 @@ class CasUser implements UserInterface, CasUserInterface {
      *
      * @return Role[] The user roles
      */
-    public function getRoles(): array {
+    public function getRoles() {
         return $this->roles;
     }
 
@@ -54,7 +54,7 @@ class CasUser implements UserInterface, CasUserInterface {
      *
      * @return string The username
      */
-    public function getUserIdentifier(): string {
+    public function getUsername() {
         return $this->getId();
     }
 
@@ -64,7 +64,7 @@ class CasUser implements UserInterface, CasUserInterface {
      * This is important if, at any given point, sensitive information like
      * the plain-text password is stored on this object.
      */
-    public function eraseCredentials(): void {}
+    public function eraseCredentials() {}
 
     public function equals(UserInterface $user) {
         if(!$user instanceof CasUser) {
