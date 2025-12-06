@@ -1,0 +1,104 @@
+<?php
+
+namespace L3\Bundle\CasUserBundle\Entity;
+
+use Symfony\Component\Security\Core\Role\Role;
+use Symfony\Component\Security\Core\User\UserInterface;
+use L3\Bundle\CasGuardBundle\Entity\CasUserInterface;
+
+class CasUser implements UserInterface, CasUserInterface {
+
+    protected $id;
+    protected $attributes;
+    private $roles = array();
+
+    public function updateRoles(array $rolesConfig = array()) {        
+        $this->roles = $rolesConfig;
+        return; 
+    }
+
+    /**
+     * Returns the roles granted to the user.
+     *
+     * @return Role[] The user roles
+     */
+    public function getRoles(): array {
+        return $this->roles;
+    }
+
+    /**
+     * Returns the password used to authenticate the user.
+     *
+     * This should be the encoded password. On authentication, a plain-text
+     * password will be salted, encoded, and then compared to this value.
+     *
+     * @return string The password
+     */
+    public function getPassword() {
+        return null;
+    }
+
+    /**
+     * Returns the salt that was originally used to encode the password.
+     *
+     * This can return null if the password was not encoded using a salt.
+     *
+     * @return string|null The salt
+     */
+    public function getSalt() {
+        return null;
+    }
+
+    /**
+     * Returns the username used to authenticate the user.
+     *
+     * @return string The username
+     */
+    public function getUserIdentifier(): string {
+        return $this->getId();
+    }
+
+    /**
+     * Removes sensitive data from the user.
+     *
+     * This is important if, at any given point, sensitive information like
+     * the plain-text password is stored on this object.
+     */
+    public function eraseCredentials(): void {}
+
+    public function equals(UserInterface $user) {
+        if(!$user instanceof CasUser) {
+            return false;
+        }
+
+        if($user->getId() !== $this->getId()) {
+            return false;
+        }
+
+        return true;
+    }
+
+    /*
+     * En dessous: getter et setter
+     */
+
+    public function getId() {
+        return $this->id;
+    }
+
+    public function setId($value) {
+        $this->id = $value;
+        return $this;
+    }    
+
+    public function getAttributes() {
+        return $this->attributes;
+    }
+
+    public function setAttributes(array $attributes) {
+        $this->attributes = $attributes;
+        return $this;
+    }
+
+}
+?>

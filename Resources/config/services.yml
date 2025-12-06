@@ -1,0 +1,7 @@
+parameters:
+    cas_user_provider.class: L3\Bundle\CasUserBundle\Services\CasUserProvider
+
+services:
+    cas_user_provider:
+        class: "%cas_user_provider.class%"
+        arguments: []
