@@ -1,7 +1,7 @@
 Cas User Provider for CAS
 
 Allow use attributes (returned by CasBundle or CasGuardBundle) for application Symfony2, Symfony3, Symfony4 and Symfony 5 and Symfony6 and Symfony7
-(attributes are returned by apereo cas sso server and by the l3-team/CasBundle (repository github) or l3/cas-bundle (repository packagist) or l3-team/CasGuardBundle (repository github) or l3/cas-guard-bunlde (repository packagist))
+(attributes are returned by apereo cas sso server and by the l3-team/CasBundle (repository github) or l3/cas-bundle (repository packagist) or l3-team/CasGuardBundle (repository github) or l3/cas-guard-bundle (repository packagist))
 
 Installation of the Bundle
 ---
