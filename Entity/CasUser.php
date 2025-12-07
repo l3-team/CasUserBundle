@@ -22,7 +22,7 @@ class CasUser implements UserInterface, CasUserInterface {
      *
      * @return Role[] The user roles
      */
-    public function getRoles() {
+    public function getRoles(): array {
         return $this->roles;
     }
 
@@ -54,7 +54,7 @@ class CasUser implements UserInterface, CasUserInterface {
      *
      * @return string The username
      */
-    public function getUsername() {
+    public function getUserIdentifier(): string {
         return $this->getId();
     }
 
