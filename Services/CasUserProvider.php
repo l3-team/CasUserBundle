@@ -15,7 +15,7 @@ class CasUserProvider implements UserProviderInterface {
         $user = new CasUser();
         $user->setId($identifier);
         $roles = Array();
-        if ($username === '__NO_USER__') {
+        if ($identifier === '__NO_USER__') {
             $roles = array('ROLE_ANON');
         } else {
             $roles = array('ROLE_ANON', 'ROLE_USER');
