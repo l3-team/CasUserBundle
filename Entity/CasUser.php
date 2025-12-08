@@ -9,7 +9,7 @@ use L3\Bundle\CasGuardBundle\Entity\CasUserInterface;
 class CasUser implements UserInterface, CasUserInterface {
 
     protected $id;
-    protected $attributes;
+    protected $casAttributes;
     private $roles = array();
 
     public function updateRoles(array $rolesConfig = array()) {        
@@ -91,12 +91,12 @@ class CasUser implements UserInterface, CasUserInterface {
         return $this;
     }    
 
-    public function getAttributes() {
-        return $this->attributes;
+    public function getCasAttributes() {
+        return $this->casAttributes;
     }
 
-    public function setAttributes(array $attributes) {
-        $this->attributes = $attributes;
+    public function setCasAttributes(array $attributes) {
+        $this->casAttributes = $attributes;
         return $this;
     }
 
