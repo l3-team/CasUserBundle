@@ -64,7 +64,7 @@ security:
             id: cas_user_provider
 ```
 
-For Symfony 6, Symfony 7:
+For Symfony 6, Symfony 7, Symfony 8:
 ```
 # config/packages/security.yaml
 security:
